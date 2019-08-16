@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.GameController">
+   <right>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane layoutX="210.0" layoutY="14.0" prefHeight="50.0" prefWidth="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label fx:id="welcomeLabel" layoutY="5.0" text="Hello!">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Circle fx:id="circleImage" fill="DODGERBLUE" layoutX="266.0" layoutY="25.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </Pane>
+            <TextField fx:id="messageTextField" maxWidth="0.0" onKeyPressed="#messageTextField_KeyPressed" prefHeight="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TabPane layoutX="144.0" layoutY="146.0" prefHeight="404.0" prefWidth="300.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="146.0">
+               <tabs>
+                  <Tab fx:id="tabChat" text="Chat">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="202.0" prefWidth="300.0">
+                           <children>
+                              <WebView fx:id="webViewMessages" layoutY="49.0" prefHeight="0.0" prefWidth="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="tabUsers" text="Obecni">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ListView fx:id="userListView" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+            <CheckBox fx:id="playerRedCheckBox" layoutX="50.0" layoutY="104.0" mnemonicParsing="false" onAction="#playerRedCheckBox_OnActrion" prefHeight="20.0" prefWidth="140.0" text="Gracz czerwony" AnchorPane.bottomAnchor="476.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="110.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="playerWhiteCheckBox" layoutX="50.0" layoutY="57.0" mnemonicParsing="false" onAction="#playerWhiteCheckBox_OnActrion" prefHeight="20.0" prefWidth="140.0" text="Gracz biały" AnchorPane.bottomAnchor="523.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="110.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </CheckBox>
+            <ImageView fx:id="sendImageView" fitHeight="30.0" fitWidth="30.0" onMouseReleased="#sendImageView_MouseReleased" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+               <image>
+                  <Image url="@../../res/send.png" />
+               </image>
+            </ImageView>
+            <Circle fill="WHITE" layoutX="20.0" layoutY="67.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="playerRedImage1" fill="RED" layoutX="20.0" layoutY="114.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="playerRedImage" fill="DODGERBLUE" layoutX="20.0" layoutY="114.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="471.0" AnchorPane.leftAnchor="5.0" />
+            <Circle fx:id="playerWhiteImage" fill="DODGERBLUE" layoutX="29.0" layoutY="67.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="518.0" AnchorPane.leftAnchor="5.0" />
+            <Button fx:id="aboutButton" layoutX="192.0" layoutY="102.0" mnemonicParsing="false" onAction="#aboutButton_Click" prefHeight="25.0" prefWidth="105.0" text="O Programie" />
+            <Label fx:id="timeMoveLabel" layoutX="192.0" layoutY="59.0" text="Ruch innego gracza" />
+         </children>
+      </AnchorPane>
+   </right>
+   <center>
+      <AnchorPane fx:id="anchorPane" disable="true" maxHeight="600.0" maxWidth="600.0" minHeight="600.0" minWidth="600.0" prefHeight="600.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
